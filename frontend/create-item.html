@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Item - Campus Lost & Found</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🎓 Campus Lost & Found</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" id="nav-auth-items"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Form Container -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-7">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="card-title fw-bold mb-4">Post Lost or Found Item</h3>
+
+                            <div id="alert-container"></div>
+
+                            <form id="create-item-form">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="type" class="form-label">Listing Type <span class="text-danger">*</span></label>
+                                        <select id="type" class="form-select" required>
+                                            <option value="" disabled selected>Select Type</option>
+                                            <option value="LOST">LOST (I lost an item)</option>
+                                            <option value="FOUND">FOUND (I found an item)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                                        <select id="category" class="form-select" required>
+                                            <option value="" disabled selected>Select Category</option>
+                                            <option value="Electronics">Electronics</option>
+                                            <option value="ID Card">ID Card</option>
+                                            <option value="Books">Books</option>
+                                            <option value="Keys">Keys</option>
+                                            <option value="Bags">Bags</option>
+                                            <option value="Clothing">Clothing</option>
+                                            <option value="Calculators">Calculators</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="title" class="form-label">Item Title <span class="text-danger">*</span></label>
+                                        <input type="text" id="title" class="form-control" placeholder="e.g. Casio FX-991ES Calculator or Student ID Card" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="location" class="form-label">Campus Location <span class="text-danger">*</span></label>
+                                        <input type="text" id="location" class="form-control" placeholder="e.g. AB1 Block / Library / Canteen" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="date" class="form-label">Date Lost/Found <span class="text-danger">*</span></label>
+                                        <input type="date" id="date" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+                                        <textarea id="description" class="form-control" rows="4" placeholder="Provide relevant details (e.g. color, small scratch near screen, sticker, location specifics)..." required></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Submit Listing</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container text-muted small">
+            &copy; 2026 Campus Lost & Found Platform
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/create-item.js"></script>
+</body>
+</html>

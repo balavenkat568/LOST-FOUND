@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Lost & Found Platform</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🎓 Campus Lost & Found</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" id="nav-auth-items">
+                    <!-- Dynamic Navbar Items rendered by js/auth.js -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1 class="display-5 fw-bold text-dark mb-3">Find what you lost. Return what you found.</h1>
+                <p class="lead text-secondary col-md-8 mx-auto mb-4">
+                    The official campus portal to report lost belongings, verify found items, and safely coordinate recovery with fellow students.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="create-item.html" class="btn btn-danger btn-lg px-4">📢 Report Lost Item</a>
+                    <a href="create-item.html" class="btn btn-primary btn-lg px-4">🔍 Report Found Item</a>
+                    <a href="items.html" class="btn btn-outline-secondary btn-lg px-4">📋 Browse All Items</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Container for alerts -->
+        <div class="container mt-3" id="alert-container"></div>
+
+        <!-- Features Overview -->
+        <section class="py-5 bg-white border-bottom">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">How It Works</h2>
+                    <p class="text-muted">Recovering campus belongings in 3 simple steps</p>
+                </div>
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="p-4 rounded bg-light border h-100">
+                            <div class="fs-1 mb-2">📌</div>
+                            <h4 class="fw-semibold">1. Post a Listing</h4>
+                            <p class="text-muted mb-0">Report an item you lost or found with title, category, campus location, and description.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 rounded bg-light border h-100">
+                            <div class="fs-1 mb-2">💬</div>
+                            <h4 class="fw-semibold">2. Private Chat</h4>
+                            <p class="text-muted mb-0">Communicate directly with the finder or owner via item-specific real-time messaging.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 rounded bg-light border h-100">
+                            <div class="fs-1 mb-2">✅</div>
+                            <h4 class="fw-semibold">3. Verify & Return</h4>
+                            <p class="text-muted mb-0">Verify item details (e.g. scratches, stickers), arrange handover, and mark as returned.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container text-muted small">
+            &copy; 2026 Campus Lost & Found Platform — Student Project
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth & Shared Script -->
+    <script src="js/auth.js"></script>
+</body>
+</html>
