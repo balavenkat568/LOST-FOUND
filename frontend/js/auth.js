@@ -71,6 +71,9 @@ function renderNavbar() {
             <li class="nav-item">
                 <a class="nav-link" href="my-items.html">My Items</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="inbox.html">💬 Inbox</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     👤 ${user.name}

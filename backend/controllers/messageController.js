@@ -45,18 +45,27 @@ const getItemMessages = async (req, res) => {
     try {
         const itemId = req.params.itemId;
         const userId = req.user._id;
+        const receiverId = req.query.receiverId;
 
-        // Retrieve messages for this item where logged-in user is sender or receiver
-        const messages = await Message.find({
-            itemId: itemId,
-            $or: [
+        let query = { itemId: itemId };
+
+        if (receiverId) {
+            query.$or = [
+                { sender: userId, receiver: receiverId },
+                { sender: receiverId, receiver: userId }
+            ];
+        } else {
+            query.$or = [
                 { sender: userId },
                 { receiver: userId }
-            ]
-        })
-        .populate('sender', 'name email')
-        .populate('receiver', 'name email')
-        .sort({ createdAt: 1 }); // Oldest first for chat timeline
+            ];
+        }
+
+        // Retrieve messages for this item conversation
+        const messages = await Message.find(query)
+            .populate('sender', 'name email')
+            .populate('receiver', 'name email')
+            .sort({ createdAt: 1 }); // Oldest first for chat timeline
 
         res.status(200).json(messages);
     } catch (error) {
@@ -81,17 +90,21 @@ const getUserConversations = async (req, res) => {
         .populate('receiver', 'name email')
         .sort({ createdAt: -1 });
 
-        // Group by itemId to show distinct conversation threads
+        // Group by combination of itemId + otherUser to show distinct conversation threads
         const conversationMap = new Map();
         messages.forEach(msg => {
-            if (msg.itemId && !conversationMap.has(msg.itemId._id.toString())) {
+            if (msg.itemId && msg.sender && msg.receiver) {
                 const otherParty = msg.sender._id.toString() === userId.toString() ? msg.receiver : msg.sender;
-                conversationMap.set(msg.itemId._id.toString(), {
-                    item: msg.itemId,
-                    otherUser: otherParty,
-                    lastMessage: msg.message,
-                    lastMessageTime: msg.createdAt
-                });
+                const threadKey = `${msg.itemId._id.toString()}_${otherParty._id.toString()}`;
+
+                if (!conversationMap.has(threadKey)) {
+                    conversationMap.set(threadKey, {
+                        item: msg.itemId,
+                        otherUser: otherParty,
+                        lastMessage: msg.message,
+                        lastMessageTime: msg.createdAt
+                    });
+                }
             }
         });
 

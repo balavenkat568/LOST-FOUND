@@ -113,7 +113,11 @@ async function loadMessageHistory(itemId) {
 
     try {
         const token = getToken();
-        const response = await fetch(`${API_BASE_URL}/messages/${itemId}`, {
+        const historyUrl = currentReceiverId 
+            ? `${API_BASE_URL}/messages/${itemId}?receiverId=${currentReceiverId}` 
+            : `${API_BASE_URL}/messages/${itemId}`;
+
+        const response = await fetch(historyUrl, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
