@@ -183,15 +183,7 @@ http://localhost:5000
 
 ---
 
-## 📷 Screenshots
 
-*(Placeholder for project screenshots)*
-- **Home Page**: Clean banner & action triggers.
-- **Browse Listings**: Search bar and category filters.
-- **Item Details**: Full description & "Message User" CTA.
-- **Real-Time Chat**: Live Socket.IO messaging with typing indicators.
-
----
 
 ## 🔮 Future Improvements
 
